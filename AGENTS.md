@@ -10,7 +10,7 @@ Until then: this is `factory-template`, the starting point for every TypeScript 
 
 ## Commands
 
-- Install: `pnpm install`
+- Install: `pnpm install` (on a fresh clone it also creates `.env.local` from `.env.example`)
 - Local database (no Docker): `pnpm db:local` in one terminal, then `pnpm db:migrate`
 - Dev server: `pnpm dev`
 - **Before saying you're done: `pnpm check` must pass.** Fix failures. Never suppress them.

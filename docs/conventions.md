@@ -110,7 +110,7 @@ Tailwind is installed. shadcn/ui is not pre-installed: add components one at a t
 
 Things that have already cost time. The ratchet adds to this list; nothing is removed without a reason.
 
-- **`pnpm check` needs no env file.** `pnpm build` and `pnpm dev` do: copy `.env.example` to `.env.local`. Tests get placeholder values from `vitest.config.ts`.
+- **`pnpm check` needs no env file.** `pnpm build` and `pnpm dev` do. `pnpm install` creates `.env.local` from `.env.example` on a fresh clone (`tools/setup-env.ts`, with a generated `BETTER_AUTH_SECRET`); it never overwrites one and is skipped in CI and on Vercel, where env must come from the real environment. Tests get placeholder values from `vitest.config.ts`.
 - **Local Postgres is PGlite.** `pnpm db:local` starts it on port 5433 with data in `.pglite/`. It does not support SSL, so local URLs end in `?sslmode=disable`. `pnpm e2e` starts its own in-memory instance on another port; do not point it at yours.
 - **dependency-cruiser sees pnpm's real paths** (`node_modules/.pnpm/<pkg>@<ver>/node_modules/<pkg>/`). A rule pattern anchored with `^node_modules/` never matches. Use the `pkg()` helper in `.dependency-cruiser.cjs`.
 - **TypeScript is pinned to 6.x.** dependency-cruiser 18 cannot read TypeScript 7.0. Do not bump TypeScript to 7 until dependency-cruiser supports the installed version (`pnpm exec depcruise --info` shows a tick next to `typescript`).

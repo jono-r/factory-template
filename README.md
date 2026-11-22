@@ -9,8 +9,7 @@ Next.js (App Router) · TypeScript strict · Postgres + Drizzle · Better Auth �
 ```bash
 gh repo create jono-r/<name> --template jono-r/factory-template --private --clone
 cd <name>
-pnpm install
-cp .env.example .env.local   # then set BETTER_AUTH_SECRET: openssl rand -base64 32
+pnpm install   # also creates .env.local from .env.example, with a generated BETTER_AUTH_SECRET
 ```
 
 Then fill in "What this is" in `AGENTS.md` and the Product section of `docs/constitution.md`, and write the first spec from `docs/specs/_template.md`.
