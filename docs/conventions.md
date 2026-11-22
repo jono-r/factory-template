@@ -122,3 +122,4 @@ Things that have already cost time. The ratchet adds to this list; nothing is re
 - **Auth tables are singular** (`user`, `session`) because Better Auth generates them. Application tables are plural.
 - **A module's `index.ts` wires real dependencies at import time.** Unit tests import the service file directly, never `index.ts`.
 - **Email without `RESEND_API_KEY` is not sent.** It is kept in memory and a warning is logged at startup. Fine for dev, e2e and previews; set the key in production.
+- **The `secrets` CI job fails on the first push of a brand-new repo.** gitleaks diffs against the parent of the first commit, which does not exist. It is not a leak; the next push passes. Create the repo, push once more, then turn on branch protection.
