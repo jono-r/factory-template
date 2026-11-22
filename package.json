@@ -23,7 +23,7 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:local": "pglite-server --db=./.pglite --port=5433 --max-connections=10",
-    "prepare": "lefthook install"
+    "prepare": "lefthook install && node tools/setup-env.ts"
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "0.13.11",
